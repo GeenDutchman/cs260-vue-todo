@@ -13,6 +13,13 @@ var app = new Vue({
         }],
         message: '',
     },
+    computed: {
+        activeTodos() {
+            return this.todos.filter(item => {
+                return !item.completed;
+            });
+        },
+    },
     methods: {
         addItem() {
             this.todos.push({text: this.message, completed: false});
